@@ -1,0 +1,15 @@
+SECRET_KEY=MyBigSecret
+
+APP_CLIENT_ID=pevosdc.onmicrosoft.com/af3596c2-58dc-4c44-b956-898034f6f0ac
+#APP_CLIENT_ID=af3596c2-58dc-4c44-b956-898034f6f0ac
+OPENAPI_CLIENT_ID=9afb9212-5fbd-4732-b3b3-99ec5537b709
+TENANT_ID=89a9fa4a-1632-4f9c-9041-3db984383edb
+GRAPH_SECRET=MyBigSecret
+#AUTH_URL=https://{project name from Azure}.b2clogin.com/{project name from Azure}.onmicrosoft.com/{Tenant}/
+#oauth2/v2.0/authorize
+AUTH_URL=https://none.com
+#https://{project name from Azure}.b2clogin.com/{project name from Azure}.onmicrosoft.com/{Tenant}/
+#v2.0/.well-known/openid-configuration
+CONFIG_URL=https://none.com
+#https://{project name from Azure}.b2clogin.com/{project name from Azure}.onmicrosoft.com/{Tenant}/oauth2/v2.0/token
+TOKEN_URL=https://none.com

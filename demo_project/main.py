@@ -66,6 +66,7 @@ if __name__ == '__main__':
     parser.add_argument('--reload', action='store_true')
     args = parser.parse_args()
     if args.api:
-        uvicorn.run('main:app', reload=args.reload)
+        uvicorn.run('main:app', reload=args.reload,  host='localhost', port=8010)
     else:
         raise ValueError('No valid combination of arguments provided.')
+

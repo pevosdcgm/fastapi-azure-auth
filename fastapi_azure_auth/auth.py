@@ -196,11 +196,14 @@ class AzureAuthorizationCodeBearerBase(SecurityBase):
                         'leeway': 0,
                     }
                     # Validate token
+                    aud1=self.app_client_id.split('/')[-1]
                     token = jwt.decode(
                         access_token,
                         key=key,
                         algorithms=['RS256'],
-                        audience=self.app_client_id if self.token_version == 2 else f'api://{self.app_client_id}',
+#                        audience=self.app_client_id if self.token_version == 2 else f'api://{self.app_client_id}',
+
+                        audience=aud1 if self.token_version == 2 else f'api://{self.app_client_id}',
                         issuer=iss,
                         options=options,
                     )
