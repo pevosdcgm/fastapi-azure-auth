@@ -1,0 +1,15 @@
+SECRET_KEY=MyBigSecret
+
+APP_CLIENT_ID=b857159f-f7d9-4bb9-a47a-5f2239695579
+#APP_CLIENT_ID=af3596c2-58dc-4c44-b956-898034f6f0ac
+OPENAPI_CLIENT_ID=3fa7f091-b8e3-428f-b223-1ba26a4b2183
+TENANT_ID=62305c4e-430c-403b-b76c-e79a7c83b783
+GRAPH_SECRET=MyBigSecret
+#AUTH_URL=https://{project name from Azure}.b2clogin.com/{project name from Azure}.onmicrosoft.com/{Tenant}/
+#oauth2/v2.0/authorize
+AUTH_URL=https://none.com
+#https://{project name from Azure}.b2clogin.com/{project name from Azure}.onmicrosoft.com/{Tenant}/
+#v2.0/.well-known/openid-configuration
+CONFIG_URL=https://none.com
+#https://{project name from Azure}.b2clogin.com/{project name from Azure}.onmicrosoft.com/{Tenant}/oauth2/v2.0/token
+TOKEN_URL=https://none.com

@@ -122,6 +122,7 @@ class AzureAuthorizationCodeBearerBase(SecurityBase):
         if not self.token_url:
             if multi_tenant:
                 self.token_url = 'https://login.microsoftonline.com/common/oauth2/v2.0/token'
+
             else:
                 self.token_url = f'https://login.microsoftonline.com/{self.openid_config.tenant_id}/oauth2/v2.0/token'
 

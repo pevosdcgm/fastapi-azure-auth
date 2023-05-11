@@ -21,7 +21,7 @@
             "console": "integratedTerminal",
             "justMyCode": true,
             "cwd": "${workspaceFolder}",
-            "envFile": "${workspaceFolder}/demo_project/.env2",
+            "envFile": "${workspaceFolder}/demo_project/.envTIA",
             "env": {
                 "PYTHONPATH": "${cwd}",
 

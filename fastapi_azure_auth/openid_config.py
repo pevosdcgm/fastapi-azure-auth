@@ -63,7 +63,7 @@ class OpenIdConfig:
         """
         Load openid config, fetch signing keys
         """
-        path = 'common' if self.multi_tenant else self.tenant_id
+        path = 'common' if self.multi_tenant else self.tenant_id #orig
 
         if self.config_url:
             config_url = self.config_url

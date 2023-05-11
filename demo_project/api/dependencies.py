@@ -46,12 +46,13 @@ class IssuerFetcher:
         Check if memory cache needs to be updated or not, and then returns an issuer for a given tenant
         :raises InvalidAuth when it's not a valid tenant
         """
-        refresh_time = datetime.now() - timedelta(hours=1)
+        refresh_time = datetime.now() - timedelta(hours=0.1)
         if not self._config_timestamp or self._config_timestamp < refresh_time:
             self._config_timestamp = datetime.now()
             # logic to find your allowed tenants and it's issuers here
             # (This example cache in memory for 1 hour)
             self.tid_to_iss = {
+                '89a9fa4a-1632-4f9c-9041-3db984383edb': 'https://login.microsoftonline.com/89a9fa4a-1632-4f9c-9041-3db984383edb/v2.0',
                 'intility_tenant_id': 'https://login.microsoftonline.com/intility_tenant/v2.0',
             }
         try:
