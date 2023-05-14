@@ -56,6 +56,7 @@ class IssuerFetcher:
                 'intility_tenant_id': 'https://login.microsoftonline.com/intility_tenant/v2.0',
             }
         try:
+            log.info('tid=%s,tid_to_iss=%s',tid, self.tid_to_iss[tid])
             return self.tid_to_iss[tid]
         except Exception as error:
             log.exception('`iss` not found for `tid` %s. Error %s', tid, error)
@@ -98,6 +99,9 @@ async def multi_auth(
     """
     Example implementation.
     """
+    log.info("multi_auth")
+    log.warning("multi-auth")
+    log.exception("multi-auth")
     if azure_auth:
         return azure_auth
     if api_key == 'JonasIsCool':

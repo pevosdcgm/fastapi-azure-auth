@@ -1,8 +1,9 @@
 fastapi
 uvicorn
 sqlalchemy
+passlib[bcrypt]
 python-jose[cryptography]
 python-multipart
 python-dotenv
 strawberry-graphql[debug-server]
-httpx
+httpx==0.23.3

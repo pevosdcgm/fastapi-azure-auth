@@ -28,7 +28,8 @@
             },
             "args": [
                 "--reload",
-                "--api"
+                "--api",
+                "--loglevel", "info"
             ],
         },
         {

@@ -8,7 +8,7 @@ from demo_project.core.config import settings
 from fastapi import FastAPI, Security
 from fastapi.middleware.cors import CORSMiddleware
 
-log = logging.getLogger(__name__)
+#log = logging.getLogger(__name__)
 
 app = FastAPI(
     openapi_url=f'{settings.API_V1_STR}/openapi.json',
@@ -64,9 +64,25 @@ if __name__ == '__main__':
     parser = ArgumentParser()
     parser.add_argument('--api', action='store_true')
     parser.add_argument('--reload', action='store_true')
+
+    parser.add_argument( '-log',
+                     '--loglevel',
+                     default='warning',
+                     help='Provide logging level. Example --loglevel debug, default=warning' )
+
     args = parser.parse_args()
+    
+    logging.basicConfig( level=args.loglevel.upper(), format= '%(asctime)s - %(name)s - %(levelname)s - %(message)s')
+
+#log = logging.getLogger(__name__)
+
+    logging.info( 'Logging now setup.' )
+    log = logging.getLogger(__name__)
+    log.info("info")
+    log.warning("warning")
+
     if args.api:
-        uvicorn.run('main:app', reload=args.reload,  host='localhost', port=8010)
+#        uvicorn.run('main:app', reload=args.reload)
+        uvicorn.run('main:app', host='localhost', port=8010, reload=args.reload)
     else:
         raise ValueError('No valid combination of arguments provided.')
-

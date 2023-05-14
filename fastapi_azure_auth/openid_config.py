@@ -35,7 +35,7 @@ class OpenIdConfig:
         """
         Loads config from the Intility openid-config endpoint if it's over 24 hours old (or don't exist)
         """
-        refresh_time = datetime.now() - timedelta(hours=24)
+        refresh_time = datetime.now() #- timedelta(hours=24)
         if not self._config_timestamp or self._config_timestamp < refresh_time:
             try:
                 log.debug('Loading Azure AD OpenID configuration.')
@@ -75,7 +75,7 @@ class OpenIdConfig:
             config_url += f'?appid={self.app_id}'
 
         async with AsyncClient(timeout=10) as client:
-            log.info('Fetching OpenID Connect config from %s', config_url)
+            log.warning('Fetching OpenID Connect config from %s', config_url)
             openid_response = await client.get(config_url)
             openid_response.raise_for_status()
             openid_cfg = openid_response.json()

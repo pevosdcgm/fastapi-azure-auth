@@ -1,4 +1,5 @@
 from typing import Dict, Union
+import logging
 
 from demo_project.api.dependencies import multi_auth, multi_auth_b2c
 from demo_project.schemas.hello_world import TokenType
@@ -6,15 +7,20 @@ from fastapi import APIRouter, Depends, Request
 
 from fastapi_azure_auth.user import User
 
+log = logging.getLogger(__name__)
+log.info("hello_world_multi_auth")
+log.warning("hello_world_multi_auth")
+log.exception("hello_world_multi_auth")
+
 router = APIRouter()
 
 
 @router.get(
     '/hello-multi-auth',
     response_model=TokenType,
-    summary='Say hello with an API key',
-    name='hello_world_api_key',
-    operation_id='helloWorldApiKey',
+    summary='Say hello with openid',
+    name='hello_world_multi_auth',
+    operation_id='helloWorldMultiAuth',
 )
 async def world(request: Request, auth: Union[str, User] = Depends(multi_auth)) -> Dict[str, bool]:
     """
