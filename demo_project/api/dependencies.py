@@ -15,6 +15,8 @@ from fastapi_azure_auth.exceptions import InvalidAuth
 from fastapi_azure_auth.user import User
 
 log = logging.getLogger(__name__)
+log.warning("logger name: " + __name__)
+
 
 
 azure_scheme = SingleTenantAzureAuthorizationCodeBearer(

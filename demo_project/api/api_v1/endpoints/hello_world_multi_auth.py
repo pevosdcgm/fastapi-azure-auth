@@ -7,10 +7,11 @@ from fastapi import APIRouter, Depends, Request
 
 from fastapi_azure_auth.user import User
 
-log = logging.getLogger(__name__)
-log.info("hello_world_multi_auth")
-log.warning("hello_world_multi_auth")
-log.exception("hello_world_multi_auth")
+log = logging.getLogger("__main__." + __name__)
+log.propagate=True
+log.info("hello_world_multi_auth info")
+log.warning("hello_world_multi_auth warning ")
+log.exception("hello_world_multi_auth exception")
 
 router = APIRouter()
 

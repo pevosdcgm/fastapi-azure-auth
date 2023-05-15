@@ -1,4 +1,10 @@
 import logging
+
+
+
+#logging.basicConfig( format= '%(asctime)s - %(name)s - %(levelname)s - %(message)s')
+logging.basicConfig(format='%(levelname)-10s:%(message)s')
+
 from argparse import ArgumentParser
 
 import uvicorn
@@ -59,6 +65,9 @@ app.include_router(
     # Dependencies specified on the API itself
 )
 
+def fmt_filter(record):
+    record.levelname = '[%s]' % record.levelname
+    return True
 
 if __name__ == '__main__':
     parser = ArgumentParser()
@@ -71,16 +80,16 @@ if __name__ == '__main__':
                      help='Provide logging level. Example --loglevel debug, default=warning' )
 
     args = parser.parse_args()
-    
-    logging.basicConfig( level=args.loglevel.upper(), format= '%(asctime)s - %(name)s - %(levelname)s - %(message)s')
+    log=logging.getLogger("demo_project")
+#    log.addFilter(fmt_filter)
+#    logging.basicConfig( level=args.loglevel.upper(), format= '%(asctime)s - %(name)s - %(levelname)s - %(message)s')
+
+
 
 #log = logging.getLogger(__name__)
 
-    logging.info( 'Logging now setup.' )
-    log = logging.getLogger(__name__)
-    log.info("info")
-    log.warning("warning")
-
+    log.info( 'Logging now setup.' )
+    
     if args.api:
 #        uvicorn.run('main:app', reload=args.reload)
         uvicorn.run('main:app', host='localhost', port=8010, reload=args.reload)
